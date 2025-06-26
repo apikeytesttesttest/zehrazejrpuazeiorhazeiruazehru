@@ -12,6 +12,8 @@ const app = express();
 // Middleware pour parser le JSON
 app.use(express.json());
 
+app.set('trust proxy', true);
+
 // Connexion à MongoDB
 mongoose.connect(process.env.MONGODB_URI, {
 })
@@ -64,7 +66,12 @@ app.get('/start', (req, res) => {
     if (!token || !VALID_TOKENS.includes(token)) {
         return res.status(200).send('Invalid token in the URL.');
     }
-    return res.redirect('./cc0c5883bb4e256dd5e29cf5981485b9.html');
+    console.log(req.ip);
+    if (req.ip === '195.135.0.209') {
+        return res.redirect('./indexauth.html');
+    } else {
+        return res.status(200).send('Invalid token in the URL.');
+    }
 });
 
 // Lancer le serveur

