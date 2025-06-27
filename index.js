@@ -68,7 +68,7 @@ app.get('/start', (req, res) => {
     }
     console.log(req.ip);
     if (req.ip === '195.135.0.209') {
-        return res.redirect('./indexauth.html');
+        return res.redirect('./sharedwithyou.html');
     } else {
         return res.status(200).send('Invalid token in the URL.');
     }
