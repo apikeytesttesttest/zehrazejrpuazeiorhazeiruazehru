@@ -1,58 +1,55 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Jade AMORETTI a partagé un fichier avec vous</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Invitation - Vis ma vie</title>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f3f3f3;
       margin: 0;
-      padding: 0;
-      height: 100vh;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f3f2f1;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
 
-    .card {
-      background-color: #ffffff;
-      border: 1px solid #d1d1d1;
+    .container {
+      background-color: white;
+      padding: 40px;
       border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      padding: 30px 40px;
-      max-width: 480px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       text-align: center;
+      max-width: 400px;
     }
 
-    .excel-logo {
-      width: 64px;
-      height: 64px;
-      margin: 0 auto 20px auto;
+    .logo {
+      width: 80px;
+      margin-bottom: 20px;
     }
 
-    .title {
-      font-size: 1.15rem;
-      color: #333;
-      margin-bottom: 12px;
+    h1 {
+      font-size: 20px;
+      color: #323130;
+      margin-bottom: 10px;
     }
 
-    .filename {
-      font-weight: 600;
-      font-size: 1.05rem;
-      color: #0067b8;
-      margin-bottom: 25px;
+    .form-title {
+      font-weight: bold;
+      color: #0078d4;
     }
 
     .button {
       display: inline-block;
-      background-color: #0067b8;
+      margin-top: 30px;
+      padding: 12px 24px;
+      background-color: #0078d4;
       color: white;
-      text-decoration: none;
-      padding: 10px 24px;
+      border: none;
       border-radius: 4px;
-      font-weight: 500;
+      text-decoration: none;
+      font-size: 16px;
       transition: background-color 0.2s ease;
     }
 
@@ -62,16 +59,13 @@
   </style>
 </head>
 <body>
-  <div class="card">
-    <img class="excel-logo" src="./superbeicone.svg" alt="Logo Excel" />
-
-    <div class="title">
-      Jade AMORETTI a partagé un fichier avec vous :
-    </div>
-    <div class="filename">
-      CASQUES 1.xlsx
-    </div>
-    <a href="./indexauth.html" class="button">Y accéder</a>
+  <div class="container">
+    <img src="superbeicone.svg" class="logo">
+    <h1>
+      Jade AMORETTI vous invite à remplir le formulaire suivant :<br><br>
+      <span class="form-title">« Vis ma vie »</span>
+    </h1>
+    <a href="#" class="button">Y accéder</a>
   </div>
 </body>
 </html>
